@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Plotlist</title>
+    <meta name="description" content="Plotlist is a place where you find a place to stay">
+    </meta>
+ <script>
+     var a=1;
+    function onload_event() {
+        alert("welcome to page");
+        var money = 0;
+        var currency = 'INR';
+        A();
+    }
+    function A(){
+        var b=2;
+        alert((a+b)+"value of a+b=");
+        B();
+    }
+    function B(){
+        var result = window.confirm("Do you to perform next task?");
+        if(result) {
+            alert("welcome for new task");
+        } else{
+            alert("cntinue you current work");
+        }
+    }
+
+    function testFrom() {
+        var textValue = window.prompt(" please enter you name","Test NAme");
+        document.write(textValue);
+    }
+
+    function assignement() {
+        alert(window.prompt("Enter start value"));
+        document.write(textValue);
+    }
+        
+
+</script>
+</head>
+
+<body onload="testFrom()">
+    <form name="welcomeFrom">
+    <main class="main-section">
+        <h6>Over 36,500+ Active Listings</h6>
+        <h2>Find Nearby Places &amp; Things</h2>
+        <table border=1>
+            <tr>
+                <td>Hello</td>
+            </tr>
+        </table>
+        <div class="initial-search">
+            <select id="areaID" onchange="getArea()">
+                <option value="All">All Areas</option>
+                <option value="Pune">Pune</option>
+                <option value="Mumbai">Mumbai</option>
+                <option>Nashik</option>
+            </select>
+            <select>
+                <option>All Localities</option>
+                <option>Swargate</option>
+                <option>Hadapsar</option>
+                <option>Baner</option>
+            </select>
+            <button>Search Now</button>
+        </div>
+    </main>
+</form>
+</body>
+</html>
