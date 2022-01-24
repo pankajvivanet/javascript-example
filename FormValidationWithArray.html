@@ -28,14 +28,25 @@
 			         }
 
                   const candidate_data = [];
+                  const candidate_new_data = new Array(document.myForm.User_Name.value, document.myForm.EMail.value);
                   candidate_data[0] = document.myForm.User_Name.value;
                   candidate_data[1] = document.myForm.EMail.value;
                   candidate_data[2] = document.myForm.PinCode.value;
                   candidate_data[3] = document.myForm.Country.value;
 
-                  document.getElementById("data").innerHTML = candidate_data;
+                  document.getElementById("data").innerHTML = candidate_new_data;
 
-			         //return( true );
+                  let instance_type = typeof candidate_data
+                  alert(instance_type);
+                  alert(Array.isArray(candidate_data));
+			         candidate_data instanceof Array;
+
+                  let candidate_json = '{"candidate":[{"Name" : "Test", "email":"test@test.com"},{"pincode":"123456"},{"country":"India"}]}';
+
+                  const obj = JSON.parse(candidate_json);
+                  document.getElementById("jsonExample").innerHTML = obj.candidate[0].pincode
+                  
+                  //return( true );
 			      }
 
 			</script>     
@@ -43,6 +54,7 @@
    
    <body>
       <form action = "/cgi-bin/test.cgi" name = "myForm" >
+         <p id="jsonExample"></p>
          <table cellspacing = "2" cellpadding = "2" border = "1">
             
             <tr>

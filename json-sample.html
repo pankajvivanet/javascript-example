@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            th, td, p, input, h3 {
+                font:15px 'Segoe UI';
+            }
+            table, th, td {
+                border: solid 1px #ddd;
+                border-collapse: collapse;
+                padding: 2px 3px;
+                text-align: center;
+            }
+            th {
+                font-weight:bold;
+            }
+        </style>
+    </head>
+    <body>
+
+        <h2>Create Object from JSON String</h2>
+
+        <p id="demo"></p>
+
+        <!--<p id='showData'></p>-->
+
+        <script>
+            let text = '{"employees":[' +
+            '{"firstName":"John","lastName":"Doe" },' +
+            '{"firstName":"Anna","lastName":"Smith" },' +
+            '{"firstName":"Peter","lastName":"Jones" }]}';
+
+            const obj = JSON.parse(text);
+
+            let emp_str ='';
+            for(i=0; i<obj.employees.length; i++){
+                emp_str = emp_str + obj.employees[i].firstName + "-" + obj.employees[i].lastName +" <br> ";
+            }
+
+            document.getElementById("demo").innerHTML = emp_str;
+
+            var col = [];
+            for (var i = 0; i < obj.employees.length; i++) {
+                for (var key in obj.employees[i]) {
+                    if (col.indexOf(key) === -1) {
+                        col.push(key);
+                    }
+                }
+            }
+
+            var table = document.createElement("table");
+
+            var tr = table.insertRow(-1);
+
+            for (var i = 0; i < col.length; i++) {
+                var th = document.createElement("th");
+                th.innerHTML = col[i];
+                tr.appendChild(th);
+            }
+
+            for (var i = 0; i < obj.employees.length; i++) {
+                tr = table.insertRow(-1);
+                for (var j = 0; j < col.length; j++) {
+                    var tabCell = tr.insertCell(-1);
+                    tabCell.innerHTML = obj.employees[i][col[j]];
+                }
+            }
+
+            var divShowData = document.getElementById('showData');
+            divShowData.innerHTML = "";
+            divShowData.appendChild(table);
+        </script>
+    </body>
+</html>
