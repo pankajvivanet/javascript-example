@@ -1,0 +1,87 @@
+﻿<html>   
+   <head>
+      <title>Form Validation</title>      
+			<script type = "text/javascript">
+			      
+			      function validate() {
+			      
+			         if( document.myForm.User_Name.value == "" ) {
+			            alert( "Please provide your name!" );
+			            document.myForm.User_Name.focus() ;
+			            return false;
+			         }
+			         if(!document.myForm.EMail.value.includes("@") || document.myForm.EMail.value == "" ) {
+			            alert( "Please provide your Email!" );
+			            document.myForm.EMail.focus() ;
+			            return false;
+			         }
+			         if( document.myForm.PinCode.value == "" || isNaN( document.myForm.PinCode.value ) ||
+			            document.myForm.PinCode.value.length > 6 || document.myForm.PinCode.value.length < 5) {
+			            
+			            alert( "Please provide a pin code." );
+			            document.myForm.PinCode.focus() ;
+			            return false;
+			         }
+			         if( document.myForm.Country.value == "-1" ) {
+			            alert( "Please provide your country!" );
+			            return false;
+			         }
+
+                  const candidate_data = [];
+                  candidate_data[0] = document.myForm.User_Name.value;
+                  candidate_data[1] = document.myForm.EMail.value;
+                  candidate_data[2] = document.myForm.PinCode.value;
+                  candidate_data[3] = document.myForm.Country.value;
+
+                  document.getElementById("data").innerHTML = candidate_data;
+
+			         //return( true );
+			      }
+
+			</script>     
+   </head>
+   
+   <body>
+      <form action = "/cgi-bin/test.cgi" name = "myForm" >
+         <table cellspacing = "2" cellpadding = "2" border = "1">
+            
+            <tr>
+               <td align = "right">Name</td>
+               <td><input type = "text" name = "User_Name" tabindex="1"/></td>
+            </tr>
+            
+            <tr>
+               <td align = "right">EMail</td>
+               <td><input type = "text" name = "EMail" tabindex="2"/></td>
+            </tr>
+            
+            <tr>
+               <td align = "right">Pin Code</td>
+               <td><input type = "text" name = "PinCode" tabindex="3"/></td>
+            </tr>
+            
+            <tr>
+               <td align = "right">Country</td>
+               <td>
+                  <select name = "Country">
+                     <option value = "-1" selected>[choose yours]</option>
+                     <option value = "1">USA</option>
+                     <option value = "2">UK</option>
+                     <option value = "3">INDIA</option>
+                  </select>
+               </td>
+            </tr>
+            
+            <tr>
+               <td align = "right"></td>
+               <td><button type="button" onclick="validate();">Submit</button>
+               
+               </td>
+            </tr>
+            
+         </table>
+
+         <p id="data"></p>
+      </form>      
+   </body>
+</html>
