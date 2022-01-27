@@ -1,0 +1,20 @@
+<html>
+    <body>
+        <button id="myBtn">Click Me</button>
+
+        <script>
+            function firstFunction() {
+                alert("The first function executed successfully!");
+            }
+             
+            function secondFunction() {
+                alert("The second function executed successfully");
+            }
+             
+            var btn = document.getElementById("myBtn");
+             
+            btn.onclick = firstFunction;
+            btn.onclick = secondFunction;
+        </script>
+    </body>
+</html>
