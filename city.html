@@ -11,6 +11,11 @@
 
        const state_city_map = new Map();
 
+        for(s in obj){
+            state_city_map.set(s, obj[s]);
+        }
+
+
         var state_select = document.createElement("select");
         var state_option = document.createElement("option");
         state_option.value = "-1";
